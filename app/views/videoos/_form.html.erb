@@ -1,0 +1,38 @@
+<%= form_with(model: videoo, local: true) do |form| %>
+  <% if videoo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(videoo.errors.count, "error") %> prohibited this videoo from being saved:</h2>
+
+      <ul>
+      <% videoo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clip %>
+    <%= form.file_field :clip %>
+  </div>
+  <small>Only upload videos with type mp4</small>
+
+  <div class="field">
+    <%= form.label :thumbnail %>
+    <%= form.file_field :thumbnail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
